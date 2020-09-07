@@ -4,3 +4,5 @@ node_js:
 cache:
   directories:
     - "node_modules"
+env:
+  - MONGO_URL=mongodb+srv://kevin:kevin@cluster0.llrvf.mongodb.net/Cluster0?retryWrites=true&w=majority

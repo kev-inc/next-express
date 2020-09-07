@@ -28,7 +28,7 @@ export default async (req, res) => {
       const todo = new Todo({message: req.body.message})
       try {
         const savedTodo = await todo.save()
-        res.json(savedTodo)
+        res.status(201).json(savedTodo)
       } catch(err) {
         res.json({ message: err})
       }

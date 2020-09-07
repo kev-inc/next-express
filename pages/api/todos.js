@@ -1,10 +1,20 @@
 const mongoose = require('mongoose')
 const Todo = require('../../model/todo')
 require('dotenv').config()
-
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false}, () => {
-  console.log('Connected to DB')
-})
+if(process.env.TESTING === 'true') {
+  const Mockgoose = require('mockgoose').Mockgoose
+  const mockgoose = new Mockgoose(mongoose)
+  mockgoose.prepareStorage()
+    .then(() => {
+      mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false}, () => {
+        console.log('Connected to mock DB')
+      })
+    })
+} else {
+  mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false}, () => {
+    console.log('Connected to DB')
+  })
+}
 
 const db = mongoose.connection
 

@@ -50,17 +50,17 @@ describe('API - todos', () => {
         })
     })
 
-    describe('PUT /api/todos', () => {
-        it('It should PUT an existing todo', (done) => {
-            server.delete('/api/todos?id=' + id)
-            .expect(200)
-            .end((error, response) => {
-                if(error) return done(error)
-                expect(response.body).to.be.a('object')
-                expect(response.body).to.have.property('_id')
-                expect(response.body).have.property('message').eq('updated test todo')
-                done()
-            })
-        })
-    })
+    // describe('DELETE /api/todos', () => {
+    //     it('It should PUT an existing todo', (done) => {
+    //         server.delete('/api/todos?id=' + id)
+    //         .expect(200)
+    //         .end((error, response) => {
+    //             if(error) return done(error)
+    //             expect(response.body).to.be.a('object')
+    //             expect(response.body).to.have.property('_id')
+    //             expect(response.body).have.property('message').eq('updated test todo')
+    //             done()
+    //         })
+    //     })
+    // })
 })

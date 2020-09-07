@@ -2,7 +2,6 @@ const expect = require('chai').expect
 const request = require('supertest')
 const server = request('http://localhost:3000')
 
-
 describe('API - todos', () => {
     var id
     describe('GET /api/todos', () => {

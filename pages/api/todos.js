@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const Todo = require('../../model/todo')
 require('dotenv').config()
+console.log(process.env.MONGO_URL)
 if(process.env.TESTING === 'true') {
   const Mockgoose = require('mockgoose').Mockgoose
   const mockgoose = new Mockgoose(mongoose)
